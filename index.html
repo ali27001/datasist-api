@@ -40,7 +40,7 @@
             // Set chart options
             var options = {'title':'Yaş Grafigi',
                 'width':400,
-                'height':300};
+                'height':300,};
 
             // Instantiate and draw our chart, passing in some options.
             var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -54,23 +54,20 @@
 
 
 <div id="app">
-<section class="filter">
-    <div class="container">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Ara</label>
-            <input type="text"  v-model="search"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ara">
 
-        </div>
-    </div>
-
-</section>
     <section class="our-webcoderskull padding-lg">
         <div class="container">
             <div class="row heading heading-icon">
                 <h2>Datassist Api Demo</h2>
+                <div class="filter">
+                    <div class="form-group col-md-5">
+                        <label style="color: #3F51B5;" for="exampleInputEmail1">Filtrele</label>
+                        <input type="text"  v-model="search"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="isime göre">
+                    </div>
+                </div>
             </div>
             <ul class="row">
-                <li  v-for="user in sonuc" class="col-12 col-md-6 col-lg-3">
+                <li  v-for="user in sonuc "   class="col-12 col-md-6 col-lg-3">
                     <div class="cnt-block equal-hight">
                         <figure><img  :src="user.employeePhoto" class="img-responsive" alt=""></figure>
                         <h3>{{user.firstName}} {{user.lastName}}</h3>
@@ -102,97 +99,98 @@
         </div>
     </section>
     <section class="chart text-center">
-        <div id="chart_div"></div>
+        <div class="container">
+            <div id="chart_div"></div>
+        </div>
     </section>
 </div>
-
-
 
 <script>
     var app = new Vue({
         el: '#app',
-        data: {
-            search:'',
-            sorgu:"",
-            sonuc:[
-                {
-                age: 25,
-                childCount: 0,
-                citizenship: "Amerikan",
-                employeePhoto: "https://vignette.wikia.nocookie.net/marveldatabase/images/f/f1/Amazing_Spider-Man_Vol_3_1_Granov_Variant_Textless.jpg/revision/latest?cb=20140316144029",
-                employer: "Daily Bugle",
-                employmentStartDate: "01-01-2019",
-                employmentTerminationDate: null,
-                firstName: "Peter",
-                gender: "Erkek",
-                hireDate: "01-01-2019",
-                lastName: "Parker",
-                maritalStatus: "Bekar",
-                profession: "Fotografçı",
-                retired: false,
-                salary: 2000,
-                salaryCurrency: "Dolar",
-                salaryPeriod: "Aylık"
-            },
-                {
-                    age: 29,
+        data(){
+            return{
+                search:'',
+                postList:[
+                    {
+                    age: 25,
                     childCount: 0,
-                    citizenship: "Menzoberranzanlı",
-                    employeePhoto: "https://vignette.wikia.nocookie.net/forgottenrealms/images/a/a6/Drizzt-5e.png/revision/latest?cb=20171222032833",
-                    employer: "Do'Urden House",
-                    employmentStartDate: "01-01-2010",
-                    employmentTerminationDate: "01-01-2016",
-                    firstName: "Drizzt",
-                    gender: "Erkek",
-                    hireDate: "01-01-2010",
-                    lastName: "Do'Urden",
-                    maritalStatus: "Bekar",
-                    profession: "Avcı",
-                    retired: false,
-                    salary: 1000,
-                    salaryCurrency: "Dolar",
-                    salaryPeriod: "Saatlik"
-                },
-                {
-                    age: 52,
-                    childCount: 2,
-                    citizenship: "Gothamlı",
-                    employeePhoto: "https://vignette.wikia.nocookie.net/batman/images/7/72/Detective_Comics_Vol_2-19_Cover-1_Teaser.jpg/revision/latest?cb=20130116215324",
-                    employer: "Wayne Enterprises",
-                    employmentStartDate: "01-01-2010",
-                    employmentTerminationDate: "01-01-2018",
-                    firstName: "Bruce",
-                    gender: "Erkek",
-                    hireDate: "01-01-2010",
-                    lastName: "Wayne",
-                    maritalStatus: "Bekar",
-                    profession: "Şirket Sahibi",
-                    retired: true,
-                    salary: 200000,
-                    salaryCurrency: "Dolar",
-                    salaryPeriod: "Günlük"
-                },
-                {
-                    age: 33,
-                    childCount: 2,
-                    citizenship: "Kattegatlı",
-                    employeePhoto: "https://vignette.wikia.nocookie.net/vikingstv/images/e/ed/Lagertha_5x19.jpg/revision/latest/scale-to-width-down/310?cb=20190131044613",
-                    employer: "House of Lothbrok",
-                    employmentStartDate: "01-01-2006",
+                    citizenship: "Amerikan",
+                    employeePhoto: "https://vignette.wikia.nocookie.net/marveldatabase/images/f/f1/Amazing_Spider-Man_Vol_3_1_Granov_Variant_Textless.jpg/revision/latest?cb=20140316144029",
+                    employer: "Daily Bugle",
+                    employmentStartDate: "01-01-2019",
                     employmentTerminationDate: null,
-                    firstName: "Lagertha",
-                    gender: "Kadın",
-                    hireDate: "01-01-2006",
-                    lastName: "Lothbrok",
-                    maritalStatus: "Evli",
-                    profession: "Çiftçi",
+                    firstName: "Peter",
+                    gender: "Erkek",
+                    hireDate: "01-01-2019",
+                    lastName: "Parker",
+                    maritalStatus: "Bekar",
+                    profession: "Fotografçı",
                     retired: false,
-                    salary: 1800,
+                    salary: 2000,
                     salaryCurrency: "Dolar",
                     salaryPeriod: "Aylık"
-                }
+                },
+                    {
+                        age: 29,
+                        childCount: 0,
+                        citizenship: "Menzoberranzanlı",
+                        employeePhoto: "https://vignette.wikia.nocookie.net/forgottenrealms/images/a/a6/Drizzt-5e.png/revision/latest?cb=20171222032833",
+                        employer: "Do'Urden House",
+                        employmentStartDate: "01-01-2010",
+                        employmentTerminationDate: "01-01-2016",
+                        firstName: "Drizzt",
+                        gender: "Erkek",
+                        hireDate: "01-01-2010",
+                        lastName: "Do'Urden",
+                        maritalStatus: "Bekar",
+                        profession: "Avcı",
+                        retired: false,
+                        salary: 1000,
+                        salaryCurrency: "Dolar",
+                        salaryPeriod: "Saatlik"
+                    },
+                    {
+                        age: 52,
+                        childCount: 2,
+                        citizenship: "Gothamlı",
+                        employeePhoto: "https://vignette.wikia.nocookie.net/batman/images/7/72/Detective_Comics_Vol_2-19_Cover-1_Teaser.jpg/revision/latest?cb=20130116215324",
+                        employer: "Wayne Enterprises",
+                        employmentStartDate: "01-01-2010",
+                        employmentTerminationDate: "01-01-2018",
+                        firstName: "Bruce",
+                        gender: "Erkek",
+                        hireDate: "01-01-2010",
+                        lastName: "Wayne",
+                        maritalStatus: "Bekar",
+                        profession: "Şirket Sahibi",
+                        retired: true,
+                        salary: 200000,
+                        salaryCurrency: "Dolar",
+                        salaryPeriod: "Günlük"
+                    },
+                    {
+                        age: 33,
+                        childCount: 2,
+                        citizenship: "Kattegatlı",
+                        employeePhoto: "https://vignette.wikia.nocookie.net/vikingstv/images/e/ed/Lagertha_5x19.jpg/revision/latest/scale-to-width-down/310?cb=20190131044613",
+                        employer: "House of Lothbrok",
+                        employmentStartDate: "01-01-2006",
+                        employmentTerminationDate: null,
+                        firstName: "Lagertha",
+                        gender: "Kadın",
+                        hireDate: "01-01-2006",
+                        lastName: "Lothbrok",
+                        maritalStatus: "Evli",
+                        profession: "Çiftçi",
+                        retired: false,
+                        salary: 1800,
+                        salaryCurrency: "Dolar",
+                        salaryPeriod: "Aylık"
+                    }
 
-            ],
+                ],
+            }
         },
         methods: {
             yasBul: function () {
@@ -204,9 +202,9 @@
 
         },
         computed: {
-            filteredList() {
-                return this.sonuc.filter(post => {
-                    return post.title.toLowerCase().includes(this.search.toLowerCase())
+            sonuc() {
+                return this.postList.filter(post => {
+                    return post.firstName.toLowerCase().includes(this.search.toLowerCase())
                 })
             }
         },
@@ -234,13 +232,7 @@
 
         },
 
-        computed: {
-            sonuc() {
-                return this.sonuc.filter(post => {
-                    return user.firstName.toLowerCase().includes(this.search.toLowerCase())
-                })
-            }
-        }
+
     })
 </script>
 <!-- Optional JavaScript -->

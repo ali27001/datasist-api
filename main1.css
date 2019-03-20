@@ -4,8 +4,6 @@
     line-height: 95px;
     font-weight: 400;
     text-align: center;
-    margin: 0 0 40px;
-    padding-bottom: 20px;
     text-transform: uppercase;
 }
 ul{
@@ -78,7 +76,7 @@ ul{
     border-radius:100%;
 }
 .our-webcoderskull .cnt-block h3{
-    color:#2a2a2a;
+    color: #3F51B5;
     font-size:20px;
     font-weight:500;
     padding:6px 0;
@@ -131,4 +129,8 @@ i.fas.fa-male{
 .items{
     text-align: initial;
     padding-left: 27px;
+}
+
+.chart_box {
+    margin: 0 auto;
 }
