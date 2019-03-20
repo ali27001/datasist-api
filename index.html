@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="main1.css">
     <title>Hello, world!</title>
 </head>
@@ -23,15 +24,35 @@
             </div>
             <ul class="row">
                 <li  v-for="user in sonuc" class="col-12 col-md-6 col-lg-3">
-                    <div class="cnt-block equal-hight" style="height: 349px;">
+                    <div class="cnt-block equal-hight">
                         <figure><img  :src="user.employeePhoto" class="img-responsive" alt=""></figure>
                         <h3>{{user.firstName}} {{user.lastName}}</h3>
-                        <p></p>
+                        <div class="items">
+                        <p> <span class="title-item"> Meslek : </span> {{user.profession}}</p>
+                        <p> <span class="title-item"> Vatandaşlık :</span> {{user.citizenship}}</p>
+                        <p> <span class="title-item">İş veren :</span>{{user.employer}}</p>
+                        <p> <span class="title-item"> Yaş :</span>{{user.age}}</p>
+                        <p> <span class="title-item">Cinsiyet : </span><i v-if="user.gender === 'Kadın'" class="fas fa-female"></i>  <i v-if="user.gender === 'Erkek'"  class="fas fa-male"></i></p>
+                        <p>  <span class="title-item">İş veren :</span>Çocuk sayısı :{{user.childCount}}</p>
+                        <p><span class="title-item"> Medeni hali :</span>{{user.maritalStatus}} <img v-if="user.maritalStatus === 'Evli'"  class="maritalstatus" src="https://img.icons8.com/color/48/000000/lgbt-women.png">
+                            <img v-if="user.maritalStatus === 'Bekar'"  class="maritalstatus" src="https://cdn4.iconfinder.com/data/icons/basic-app/1000/BASICAPP_1-14-512.png">
+                        </p>
+                        <p><span class="title-item"> Maaş :</span>{{user.salary}}</p>
+                        <p> <span class="title-item">Kur :</span>{{user.salaryCurrency}}</p>
+                        <p><span class="title-item"> Ücret :</span>{{user.salaryPeriod}}</p>
+                        <p> <span class="title-item">Emeklilik :</span>
+                            <img v-if="user.retired === true"  class="maritalstatus" src="https://static.thenounproject.com/png/971109-200.png">
+                            <img v-if="user.retired === false"  class="maritalstatus" src="https://cdn4.iconfinder.com/data/icons/basic-app/1000/BASICAPP_1-14-512.png">
+                        </p>
+                        <p><span class="title-item"> Kiralama Tarihi : </span>{{user.hireDate}}</p>
+                        <p><span class="title-item"> İşe Başlama Tarihi : </span>{{user.employmentStartDate}}</p>
+                        <p> <span class="title-item">İşe çıkış Tarihi :</span> {{user.employmentTerminationDate}}</p>
                         <ul class="follow-us clearfix">
                             <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                         </ul>
+                        </div>
                     </div>
                 </li>
             </ul>
